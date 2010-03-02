@@ -1,0 +1,47 @@
+How to Run Tests Locally
+========================
+
+Prerequisites:
+- Java version >= 1.5 
+	- obtain from http://java.sun.com/javase/downloads/index.jsp
+- Ruby version >= 1.8.9
+	- obtain from http://www.ruby-lang.org/en
+- Rubygems
+	- obtain from http://rubyforge.org/frs/?group_id=126
+- Rubygem rake >= 0.8.7
+	- to install, in a terminal type "gem install rake"
+- Rubygem selenium-client >= 1.2.16
+	- to install, in a terminal type "gem install selenium-client"
+	
+Launching the Selenium Server:
+- from a command line, navigate to the "server" directory ("../server" from here)
+- run the command "java -jar selenium-server.jar"
+
+Configuring a Custom Firefox Template:
+Note: this is necessary to avoid running in to self-signed certificate security errors
+- On the Mac platform
+	- from a command line, run the command "/Applications/Firefox.app/Contents/MacOS/firefox -P"
+	- you've just launched Firefox with the profile manager active
+	- click "create new profile"
+	- follow the steps presented to create the new profile
+	- name the profile "selenium" or something easily recognizable
+	- beneath the name input, you'll notice a path to the profile directory, note this directory as we'll need it in a later step (for instance, it defaults to /Users/CURRENTUSERNAME/Library/Application Supprt/Firefox/Profile/SOMEKEY.FirefoxUserName)
+	- once the profile is created, highlight the new profile in the list and click "start firefox"
+	- once firefox is launched, navigate to all pages where self-signed certificate errors present
+	- permanently add exceptions to all errors caused by the site being tested
+	- close and quit firefox
+	
+Launching the Selenium Server with a Custom Firefox Profile:
+- from a command line, navigate to the "server" directory ("../server" from here)
+- run the command "java -jar selenium-server.jar -firefoxProfileTemplate PROFILEDIRECTORY" where PROFILEDIRECTORY is the directory noted previously when creating the firefox profile
+
+
+Selenium-Client API Doc
+=======================
+
+http://selenium-client.rubyforge.org/
+
+Element Locators
+================
+
+http://release.seleniumhq.org/selenium-remote-control/0.9.2/doc/dotnet/Selenium.html

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_post_discussion_from_home_page (PostDiscussionTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File behaviors/sample/post_discussion.rb, line 4</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_post_discussion_from_home_page</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">open</span> <span class="ruby-value str">&quot;/&quot;</span>
+    <span class="ruby-identifier">assertTitle</span> <span class="ruby-value str">&quot;OPEN Forum :: American Express OPEN Forum&quot;</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;link=login&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:page</span>
+    <span class="ruby-identifier">assertElementPresent</span>(<span class="ruby-value str">&quot;UserID&quot;</span>)
+    <span class="ruby-identifier">assertElementPresent</span>(<span class="ruby-value str">&quot;Password&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">type</span>(<span class="ruby-value str">&quot;UserID&quot;</span>, <span class="ruby-constant">TEST_CONFIG</span>[<span class="ruby-value str">'community_login'</span>])
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">type</span>(<span class="ruby-value str">&quot;Password&quot;</span>, <span class="ruby-constant">TEST_CONFIG</span>[<span class="ruby-value str">'community_password'</span>])
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;//input[@value='log in now']&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">45</span>
+    <span class="ruby-identifier">assertTextPresent</span>(<span class="ruby-value str">&quot;edit profile&quot;</span>, <span class="ruby-value str">&quot;Failed to successfully log in&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;link=Ask the Members&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:element</span>, <span class="ruby-identifier">:element</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'form_well'</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;submit&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:element</span>, <span class="ruby-identifier">:element</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'css=.sysmessage'</span>
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Select a topic&quot;</span>)
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Subject can not be empty&quot;</span>)
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Message can not be empty&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;css=.sysmessage-close a&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">verifyElementNotPresent</span>(<span class="ruby-value str">&quot;css=.sysmessage&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">select</span> <span class="ruby-value str">&quot;topic&quot;</span>, <span class="ruby-value str">&quot;label=Technology&quot;</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;submit&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:element</span>, <span class="ruby-identifier">:element</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'css=.sysmessage'</span>
+    <span class="ruby-identifier">verifyElementPresent</span>(<span class="ruby-value str">&quot;css=.sysmessage&quot;</span>)
+    <span class="ruby-identifier">verifyTextNotPresent</span>(<span class="ruby-value str">&quot;Select a topic&quot;</span>)
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Subject can not be empty&quot;</span>)
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Message can not be empty&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;css=.sysmessage-close a&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">verifyElementNotPresent</span>(<span class="ruby-value str">&quot;css=.sysmessage&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">type</span> <span class="ruby-value str">&quot;subject&quot;</span>, <span class="ruby-value str">&quot;selenium test&quot;</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;submit&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:element</span>, <span class="ruby-identifier">:element</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'css=.sysmessage'</span>
+    <span class="ruby-identifier">verifyElementPresent</span>(<span class="ruby-value str">&quot;css=.sysmessage&quot;</span>)
+    <span class="ruby-identifier">verifyTextNotPresent</span>(<span class="ruby-value str">&quot;Select a topic&quot;</span>)
+    <span class="ruby-identifier">verifyTextNotPresent</span>(<span class="ruby-value str">&quot;Subject can not be empty&quot;</span>)
+    <span class="ruby-identifier">verifyTextPresent</span>(<span class="ruby-value str">&quot;Message can not be empty&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;css=.sysmessage-close a&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">verifyElementNotPresent</span>(<span class="ruby-value str">&quot;css=.sysmessage&quot;</span>)
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">type</span> <span class="ruby-value str">&quot;message&quot;</span>, <span class="ruby-value str">&quot;selenium test&quot;</span>
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">click</span> <span class="ruby-value str">&quot;submit&quot;</span>, <span class="ruby-identifier">:wait_for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:page</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">text</span>(<span class="ruby-value str">&quot;xpath=/html/body/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/h3&quot;</span>), <span class="ruby-value str">&quot;selenium test&quot;</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">text</span>(<span class="ruby-value str">&quot;xpath=/html/body/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div/p&quot;</span>), <span class="ruby-value str">&quot;selenium test&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

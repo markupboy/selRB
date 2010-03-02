@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: SeleniumTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">SeleniumTest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/SeleniumTest_rb.html">
+                lib/SeleniumTest.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Test::Unit::TestCase
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="SeleniumTest.html">SeleniumTest</a> is the basis for the entire
+testing harness. Every test created must inherit from this class. This
+class contains the default <a href="SeleniumTest.html#M000004">setup</a>
+methods as well as assertion and verification definitions
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000019">assertAlert</a>&nbsp;&nbsp;
+      <a href="#M000023">assertAlertNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000021">assertAlertPresent</a>&nbsp;&nbsp;
+      <a href="#M000025">assertAttribute</a>&nbsp;&nbsp;
+      <a href="#M000027">assertChecked</a>&nbsp;&nbsp;
+      <a href="#M000031">assertCookie</a>&nbsp;&nbsp;
+      <a href="#M000035">assertCookieNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000033">assertCookiePresent</a>&nbsp;&nbsp;
+      <a href="#M000013">assertElementNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000011">assertElementPresent</a>&nbsp;&nbsp;
+      <a href="#M000037">assertLocation</a>&nbsp;&nbsp;
+      <a href="#M000029">assertNotChecked</a>&nbsp;&nbsp;
+      <a href="#M000051">assertNotVisible</a>&nbsp;&nbsp;
+      <a href="#M000039">assertSelectOptions</a>&nbsp;&nbsp;
+      <a href="#M000041">assertSelectedLabel</a>&nbsp;&nbsp;
+      <a href="#M000043">assertSelectedValue</a>&nbsp;&nbsp;
+      <a href="#M000045">assertSomethingSelected</a>&nbsp;&nbsp;
+      <a href="#M000017">assertTextNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000015">assertTextPresent</a>&nbsp;&nbsp;
+      <a href="#M000009">assertTitle</a>&nbsp;&nbsp;
+      <a href="#M000047">assertValue</a>&nbsp;&nbsp;
+      <a href="#M000049">assertVisible</a>&nbsp;&nbsp;
+      <a href="#M000006">default_test</a>&nbsp;&nbsp;
+      <a href="#M000004">setup</a>&nbsp;&nbsp;
+      <a href="#M000005">teardown</a>&nbsp;&nbsp;
+      <a href="#M000007">verify</a>&nbsp;&nbsp;
+      <a href="#M000020">verifyAlert</a>&nbsp;&nbsp;
+      <a href="#M000024">verifyAlertNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000022">verifyAlertPresent</a>&nbsp;&nbsp;
+      <a href="#M000026">verifyAttribute</a>&nbsp;&nbsp;
+      <a href="#M000028">verifyChecked</a>&nbsp;&nbsp;
+      <a href="#M000032">verifyCookie</a>&nbsp;&nbsp;
+      <a href="#M000036">verifyCookieNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000034">verifyCookiePresent</a>&nbsp;&nbsp;
+      <a href="#M000014">verifyElementNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000012">verifyElementPresent</a>&nbsp;&nbsp;
+      <a href="#M000008">verifyEqual</a>&nbsp;&nbsp;
+      <a href="#M000038">verifyLocation</a>&nbsp;&nbsp;
+      <a href="#M000030">verifyNotChecked</a>&nbsp;&nbsp;
+      <a href="#M000052">verifyNotVisible</a>&nbsp;&nbsp;
+      <a href="#M000040">verifySelectOptions</a>&nbsp;&nbsp;
+      <a href="#M000042">verifySelectedLabel</a>&nbsp;&nbsp;
+      <a href="#M000044">verifySelectedValue</a>&nbsp;&nbsp;
+      <a href="#M000046">verifySomethingSelected</a>&nbsp;&nbsp;
+      <a href="#M000018">verifyTextNotPresent</a>&nbsp;&nbsp;
+      <a href="#M000016">verifyTextPresent</a>&nbsp;&nbsp;
+      <a href="#M000010">verifyTitle</a>&nbsp;&nbsp;
+      <a href="#M000048">verifyValue</a>&nbsp;&nbsp;
+      <a href="#M000050">verifyVisible</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">browser</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">verification_errors</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000019.html');return false;">
+          <span class="method-name">assertAlert</span><span class="method-args">(text, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks that the message of the most recent alert matches the specified text
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000023.html');return false;">
+          <span class="method-name">assertAlertNotPresent</span><span class="method-args">(error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if there is not an alert
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000021.html');return false;">
+          <span class="method-name">assertAlertPresent</span><span class="method-args">(error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if there is an alert
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000025.html');return false;">
+          <span class="method-name">assertAttribute</span><span class="method-args">(attribute_locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks the value of the specified attribute against a known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000027.html');return false;">
+          <span class="method-name">assertChecked</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the specified element is checked
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000031.html');return false;">
+          <span class="method-name">assertCookie</span><span class="method-args">(name, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks the value of a cookie (located by that cookie&#8216;s name) is equal
+to a known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000035.html');return false;">
+          <span class="method-name">assertCookieNotPresent</span><span class="method-args">(name, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if a cookie (located by that cookie&#8216;s name) is not present
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000033.html');return false;">
+          <span class="method-name">assertCookiePresent</span><span class="method-args">(name, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if a cookie (located by that cookie&#8216;s name) is present
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000013.html');return false;">
+          <span class="method-name">assertElementNotPresent</span><span class="method-args">(element, error_message = &quot;Expected to not locate element &quot; + element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks that the specified element is nowhere on the page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000011.html');return false;">
+          <span class="method-name">assertElementPresent</span><span class="method-args">(element, error_message = &quot;Failed to locate element &quot; + element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks that the specified element is somewhere on the page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000037.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000037.html');return false;">
+          <span class="method-name">assertLocation</span><span class="method-args">(url, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the browsers current location (fully-qualified url) is equal to a
+known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000029.html');return false;">
+          <span class="method-name">assertNotChecked</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the specified element is not checked
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000051.html');return false;">
+          <span class="method-name">assertNotVisible</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the specified element is not visible
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000039.html');return false;">
+          <span class="method-name">assertSelectOptions</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if a specified select box contains a set of options equal to a known
+list
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000041.html');return false;">
+          <span class="method-name">assertSelectedLabel</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the label of the selected option in the specified select box is
+equal to a known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000043.html');return false;">
+          <span class="method-name">assertSelectedValue</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the value of the selected option in the specified select box is
+equal to a known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000045.html');return false;">
+          <span class="method-name">assertSomethingSelected</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if an option is selected in the specified select box
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000017.html');return false;">
+          <span class="method-name">assertTextNotPresent</span><span class="method-args">(text, error_message = &quot;Expected to not locate text &quot; + text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks that the specified text is nowhere on the page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000015.html');return false;">
+          <span class="method-name">assertTextPresent</span><span class="method-args">(text, error_message = &quot;Failed to locate text &quot; + text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks that the specified text is somewhere on the page
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000009.html');return false;">
+          <span class="method-name">assertTitle</span><span class="method-args">(title, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks the title of a page against a known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000047.html');return false;">
+          <span class="method-name">assertValue</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the value of an element (most likely a form input) is equal to a
+known value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000049.html');return false;">
+          <span class="method-name">assertVisible</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks if the specified element is visible
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000006.html');return false;">
+          <span class="method-name">default_test</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Default test
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000004.html');return false;">
+          <span class="method-name">setup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Necessary <a href="SeleniumTest.html#M000004">setup</a> function defition
+required to use selenium
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000005.html');return false;">
+          <span class="method-name">teardown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Necessary <a href="SeleniumTest.html#M000005">teardown</a> function
+defition required to use selenium
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000007.html');return false;">
+          <span class="method-name">verify</span><span class="method-args">(assertion)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used to <a href="SeleniumTest.html#M000007">verify</a> an assertion
+</p>
+<p>
+Pushes the standard or set verification error on to the stack to be
+displayed when test is complete Verifications should be used when tests
+aren&#8216;t required to abort on failure
+</p>
+<h3>Parameters</h3>
+<ul>
+<li><em>assertion</em> = an assertion or assertion method to be verified
+
+</li>
+</ul>
+<h3>Example</h3>
+<p>
+<a href="SeleniumTest.html#M000007">verify</a>( lambda{ assert_equal
+&quot;some text&quot;, browser.title })
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000020.html');return false;">
+          <span class="method-name">verifyAlert</span><span class="method-args">(text, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies that the message of the most recent alert matches the specified
+text using <a href="SeleniumTest.html#M000019">assertAlert</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000024.html');return false;">
+          <span class="method-name">verifyAlertNotPresent</span><span class="method-args">(error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if there is not an alert using <a
+href="SeleniumTest.html#M000023">assertAlertNotPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000022.html');return false;">
+          <span class="method-name">verifyAlertPresent</span><span class="method-args">(error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if there is an alert using <a
+href="SeleniumTest.html#M000021">assertAlertPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000026.html');return false;">
+          <span class="method-name">verifyAttribute</span><span class="method-args">(attribute_locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies the value of the specified attribute against a known value using
+<a href="SeleniumTest.html#M000025">assertAttribute</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000028.html');return false;">
+          <span class="method-name">verifyChecked</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the specified element is checked using <a
+href="SeleniumTest.html#M000027">assertChecked</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000032.html');return false;">
+          <span class="method-name">verifyCookie</span><span class="method-args">(name, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies the value of a cookie (located by that cookie&#8216;s name) is
+equal to a known value using <a
+href="SeleniumTest.html#M000031">assertCookie</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000036.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000036.html');return false;">
+          <span class="method-name">verifyCookieNotPresent</span><span class="method-args">(name, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if a cookie (located by that cookie&#8216;s name) is not present
+using <a href="SeleniumTest.html#M000035">assertCookieNotPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000034.html');return false;">
+          <span class="method-name">verifyCookiePresent</span><span class="method-args">(name, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if a cookie (located by that cookie&#8216;s name) is present using
+<a href="SeleniumTest.html#M000033">assertCookiePresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000014.html');return false;">
+          <span class="method-name">verifyElementNotPresent</span><span class="method-args">(element, error_message = &quot;Expected to not locate element &quot; + element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies that the specified element is nowhere on the page using <a
+href="SeleniumTest.html#M000013">assertElementNotPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000012.html');return false;">
+          <span class="method-name">verifyElementPresent</span><span class="method-args">(element, error_message = &quot;Failed to locate element &quot; + element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies that the specified element is somewhere on the page using <a
+href="SeleniumTest.html#M000011">assertElementPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000008.html');return false;">
+          <span class="method-name">verifyEqual</span><span class="method-args">(arg1, arg2, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="SeleniumTest.html#M000007">verify</a> shorcut for assert_equal
+</p>
+<h3>Parameters</h3>
+<ul>
+<li>_arg1_ = value to be checked
+
+</li>
+<li>_arg2_ = value to check arg1 against
+
+</li>
+<li><em>error_message</em> = string to be used as additional error messaging in
+assertion
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000038.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000038.html');return false;">
+          <span class="method-name">verifyLocation</span><span class="method-args">(url, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the browsers current location (fully-qualified url) is equal to
+a known value using <a href="SeleniumTest.html#M000037">assertLocation</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000030.html');return false;">
+          <span class="method-name">verifyNotChecked</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the specified element is not checked using <a
+href="SeleniumTest.html#M000029">assertNotChecked</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000052.html');return false;">
+          <span class="method-name">verifyNotVisible</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the specified element is not visible using <a
+href="SeleniumTest.html#M000051">assertNotVisible</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000040.html');return false;">
+          <span class="method-name">verifySelectOptions</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if a specified select box contains a set of options equal to a
+known list using <a
+href="SeleniumTest.html#M000039">assertSelectOptions</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000042.html');return false;">
+          <span class="method-name">verifySelectedLabel</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the label of the selected option in the specified select box is
+equal to a known value using <a
+href="SeleniumTest.html#M000041">assertSelectedLabel</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000044.html');return false;">
+          <span class="method-name">verifySelectedValue</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the value of the selected option in the specified select box is
+equal to a known value using <a
+href="SeleniumTest.html#M000043">assertSelectedValue</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000046.html');return false;">
+          <span class="method-name">verifySomethingSelected</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if an option is selected in the specified select box using <a
+href="SeleniumTest.html#M000045">assertSomethingSelected</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000018.html');return false;">
+          <span class="method-name">verifyTextNotPresent</span><span class="method-args">(text, error_message = &quot;Expected to not locate text &quot; + text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies that the specified text is nowhere on the page using <a
+href="SeleniumTest.html#M000017">assertTextNotPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000016.html');return false;">
+          <span class="method-name">verifyTextPresent</span><span class="method-args">(text, error_message = &quot;Failed to locate text &quot; + text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies that the specified text is somewhere on the page using <a
+href="SeleniumTest.html#M000015">assertTextPresent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000010.html');return false;">
+          <span class="method-name">verifyTitle</span><span class="method-args">(title, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies the title of a page against a known value using <a
+href="SeleniumTest.html#M000009">assertTitle</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000048.html');return false;">
+          <span class="method-name">verifyValue</span><span class="method-args">(locator, value, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the value of an element (most likely a form input) is equal to
+a known value using <a href="SeleniumTest.html#M000047">assertValue</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="SeleniumTest.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('SeleniumTest.src/M000050.html');return false;">
+          <span class="method-name">verifyVisible</span><span class="method-args">(locator, error_message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+verifies if the specified element is visible using <a
+href="SeleniumTest.html#M000049">assertVisible</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
